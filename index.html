@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesle Barber Shop | Prémiové holičství</title>
+    <meta name="description" content="Jesle Barber Shop nabízí špičkové pánské střihy, úpravu vousů a relax. Rezervujte si svůj termín online.">
+    <meta property="og:title" content="Jesle Barber Shop | Najdi si svůj perfektní střih">
+    <meta property="og:description" content="Zažijte prémiovou atmosféru a dokonalý střih v Jesle Barber Shop.">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Výkonný šumový filtr pro organický pocit -->
+    <div class="noise-overlay"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div class="bg-text">BARBER</div>
+
+    <div class="container">
+        
+        <!-- Sticky Navbar -->
+        <header class="navbar" id="navbar">
+            <a href="#hero" class="logo">
+                <span class="logo-text">Jesle</span><span class="logo-accent">Barber</span>
+            </a>
+            <nav class="desktop-nav">
+                <a href="#services">Služby</a>
+                <a href="#team">Tým</a>
+                <a href="#gallery">Fotky</a>
+                <a href="#reviews">Recenze</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn-primary open-booking">Rezervace</button>
+                <button class="menu-btn" aria-label="Menu" id="mobile-menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobile-menu">
+            <button class="close-menu-btn" id="close-mobile-menu">✕</button>
+            <nav class="mobile-nav-links">
+                <a href="#services" class="mobile-link">Služby</a>
+                <a href="#team" class="mobile-link">Tým</a>
+                <a href="#gallery" class="mobile-link">Fotky</a>
+                <a href="#faq" class="mobile-link">FAQ</a>
+                <a href="#footer" class="mobile-link">Kontakt</a>
+            </nav>
+            <button class="btn-primary open-booking mobile-book-btn">Zarezervovat termín</button>
+            <div class="mobile-socials mt-3">
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+
+        <!-- Hlavní Hero -->
+        <main class="hero" id="hero">
+            <div class="hero-top reveal">
+                <div class="hero-left">
+                    <h1 class="hero-title">
+                        Najdi si svůj <br>
+                        <span class="bold">PERFEKTNÍ <span class="highlight">STŘIH</span></span>
+                        <span class="small-text">snadno & precizně.</span>
+                    </h1>
+                    
+                    <div class="hero-action">
+                        <button class="find-barber-link open-booking">Zarezervovat termín</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="dot-pattern"></div>
+
+            <div class="hero-gallery reveal delay-1">
+                <div class="card card-large">
+                    <img src="./assets/hero_haircut.png" alt="Barber při práci" class="card-img">
+                    <div class="card-overlay">
+                        <div class="card-text">
+                            <h3>ATMOSFÉRA SALONU</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-small">
+                    <img src="./assets/gallery1.png" alt="Práce barbera" class="card-img">
+                    <div class="card-overlay">
+                        <div class="card-text">
+                            <h3>NÁŠ MASTER BARBER</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Služby -->
+        <section class="services section-padding" id="services">
+            <div class="section-header reveal">
+                <h2 class="section-title">NAŠE <span class="highlight">SLUŽBY</span></h2>
+                <p class="section-subtitle">Absolutní relax a precizní práce.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card reveal glow-hover">
+                    <div class="service-header">
+                        <h3>Klasický Střih</h3>
+                        <span class="price">Od 590 Kč</span>
+                    </div>
+                    <p class="service-desc">Konzultace, luxusní mytí, precizní fade strojkem i nůžkami a profi styling.</p>
+                    <button class="btn-outline open-booking w-100">Objednat</button>
+                </div>
+                <div class="service-card reveal delay-1 glow-hover">
+                    <div class="service-header">
+                        <h3>Úprava Vousů</h3>
+                        <span class="price">Od 390 Kč</span>
+                    </div>
+                    <p class="service-desc">Zastřižení, dokonalé tvarování břitvou, horká napářka a vyživující olej.</p>
+                    <button class="btn-outline open-booking w-100">Objednat</button>
+                </div>
+                <div class="service-card reveal delay-2 glow-hover" style="border-color: var(--accent);">
+                    <div class="service-header">
+                        <h3 class="gold-text">Kombo (Vlasy + Vousy)</h3>
+                        <span class="price gold-text">Od 890 Kč</span>
+                    </div>
+                    <p class="service-desc">Ultimátní zážitek na 90 minut. Odpočinete si a odejdete úplně jako nový chlap.</p>
+                    <button class="btn-primary w-100 open-booking">🔥 Nejoblíbenější - Objednat</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Náš Tým -->
+        <section class="team section-padding" id="team">
+            <div class="section-header reveal">
+                <h2 class="section-title">NÁŠ <span class="highlight">TÝM</span></h2>
+                <p class="section-subtitle">Řemeslníci, u kterých najdeš perfektní péči.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card reveal glow-hover">
+                    <img src="./assets/barber.png" alt="David" class="team-img">
+                    <div class="team-info">
+                        <h3>David "Boss"</h3>
+                        <p class="role">Zakladatel & Master Barber</p>
+                        <p class="specialty">Fade mistr a nůžky jako břitva.</p>
+                        <a href="javascript:void(0)" class="ig-link">@david_barbershop</a>
+                        <button class="btn-outline open-booking w-100 mt-3">Objednat k Davčovi</button>
+                    </div>
+                </div>
+                <div class="team-card reveal delay-1 glow-hover">
+                    <img src="./assets/barber.png" alt="Tomáš" class="team-img" style="filter: grayscale(0.4) brightness(0.9);">
+                    <div class="team-info">
+                        <h3>Tomáš</h3>
+                        <p class="role">Senior Barber</p>
+                        <p class="specialty">Břitvy, detaily a přesná práce s vousy.</p>
+                        <a href="javascript:void(0)" class="ig-link">@tom_fades</a>
+                        <button class="btn-outline open-booking w-100 mt-3">Objednat k Tomovi</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proměny Before & After -->
+        <section class="before-after section-padding" id="promeny">
+            <div class="section-header reveal">
+                <h2 class="section-title">ÚŽASNÉ <span class="highlight">PROMĚNY</span></h2>
+                <p class="section-subtitle">Chytni jezdec a podívej se, jak dokážeme změnit vizáž. (Demonstrační verze)</p>
+            </div>
+            
+            <div class="ba-container reveal delay-1">
+                <div class="ba-slider" id="ba-slider">
+                    <!-- Base picture (After) -->
+                    <img class="ba-after" src="./assets/gallery1.png" alt="Nový Fade">
+                    <!-- Div holding the before picture with dynamic resize -->
+                    <div class="ba-resize" id="ba-resize">
+                        <img class="ba-before" src="./assets/hero_haircut.png" alt="Před proměnou">
+                    </div>
+                    <!-- Slide Handle -->
+                    <span class="ba-handle" id="ba-handle"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galerie Carousel -->
+        <section class="gallery" id="gallery">
+            <div class="section-padding reveal">
+                <h2 class="section-title">NÁŠ <span class="highlight">INSTAGRAM</span></h2>
+                <p class="section-subtitle">Každý střih je náš podpis.</p>
+            </div>
+            <div class="carousel-wrapper reveal">
+                <div class="carousel-track">
+                    <img src="./assets/hero_haircut.png" alt="Barber střih" class="carousel-img">
+                    <img src="./assets/gallery1.png" alt="Barber střih fade" class="carousel-img">
+                    <img src="./assets/barber.png" alt="Naše práce" class="carousel-img">
+                    <img src="./assets/hero_haircut.png" alt="Barber střih" class="carousel-img">
+                    <img src="./assets/gallery1.png" alt="Barber střih fade" class="carousel-img">
+                    <img src="./assets/barber.png" alt="Naše práce" class="carousel-img">
+                    <!-- Duplicate for infinite trick -->
+                    <img src="./assets/hero_haircut.png" alt="Barber střih" class="carousel-img">
+                    <img src="./assets/gallery1.png" alt="Barber střih fade" class="carousel-img">
+                    <img src="./assets/barber.png" alt="Naše práce" class="carousel-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Recenze Google -->
+        <section class="reviews section-padding" id="reviews">
+            <div class="section-header reveal">
+                <h2 class="section-title">CO O NÁS <span class="highlight">ŘÍKAJÍ</span></h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Při čekání káva, Playstation u ruky, střih dokonale čistý. Rozhodně jsem tu nebyl naposledy."</p>
+                    <p class="review-author">- Martin K.</p>
+                </div>
+                <div class="review-card reveal delay-1">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Kluci vědí co dělají. Super parta, hudba a hlavně ten detail na fade, co mi David udělal... Paráda."</p>
+                    <p class="review-author">- Honza S.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section section-padding" id="faq">
+            <div class="section-header reveal">
+                <h2 class="section-title">ČASTÉ <span class="highlight">DOTAZY</span></h2>
+            </div>
+            <div class="faq-container reveal delay-1">
+                <details class="faq-accordion">
+                    <summary>Dá se u vás zaparkovat?</summary>
+                    <div class="faq-content">Ano! Máme vyhrazená dvě parkovací místa pro zákazníky hned vedle salonu. Zaparkovat u nás není nikdy problém.</div>
+                </details>
+                <details class="faq-accordion">
+                    <summary>Berete platební karty?</summary>
+                    <div class="faq-content">Samozřejmě. Bereme veškeré platební karty i Apple Pay / Google Pay.</div>
+                </details>
+                <details class="faq-accordion">
+                    <summary>Potřebuji ostříhat o víkendu, je to u vás možné?</summary>
+                    <div class="faq-content">V sobotu máme otevřeno od 9:00 do 14:00. Neděli si necháváme na odpočinek, abychom pro vás měli stoprocentně pevnou ruku po zbytek týdne.</div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" id="footer">
+            <div class="footer-grid reveal">
+                <div class="footer-brand">
+                    <h3>Jesle <span class="logo-accent">Barber</span></h3>
+                    <div class="social-icons">
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram</a>
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg> Facebook</a>
+                        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> WhatsApp</a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Kontakt</h3>
+                    <p>📍 Opletalova 33, Praha 1</p>
+                    <p>📞 +420 123 456 789</p>
+                    <p>✉️ info@jeslebarber.cz</p>
+                </div>
+                <div class="footer-hours">
+                    <h3>Provozní doba</h3>
+                    <p>Po-Pá: 9:00 - 19:00</p>
+                    <p>Sobota: 9:00 - 14:00</p>
+                    <p>Neděle: Zavřeno</p>
+                </div>
+            </div>
+            
+            <div class="footer-map reveal delay-1">
+                <!-- Reálná Google mapa s Dark Mode filtrem pro eleganci -->
+                <iframe class="dark-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.898050085816!2d14.4285311157183!3d50.0815858794276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94eb50f00001%3A0xc6cb5a64a3a61dfc!2sOpletalova%2033%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto!5e0!3m2!1sen!2scz!4v1713000000000!5m2!1sen!2scz" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jesle Barber Shop. Všechna práva vyhrazena.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Plovoucí Tlačítka (Sticky Bottom & WhatsApp Bubble) -->
+    <!-- Aktivní Chatbot (Max) -->
+    <div class="chat-widget-container">
+        <!-- Floating Button -->
+        <button class="floating-chat-btn" id="chat-toggle" aria-label="Otevřít chat s Maxem">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span class="chat-notification-badge" id="chat-badge">1</span>
+        </button>
+
+        <!-- Chat Window Wrap -->
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <div class="chat-avatar-wrap">
+                    <img src="./assets/barber.png" alt="Max" class="chat-avatar">
+                    <span class="chat-online-dot"></span>
+                </div>
+                <div class="chat-header-text">
+                    <div class="chat-name">Max</div>
+                    <div class="chat-status">Virtuální recepce</div>
+                </div>
+                <button class="chat-close-btn" id="chat-close">✕</button>
+            </div>
+
+            <div class="chat-body" id="chat-messages">
+                <!-- Zprávy se budou generovat zde -->
+            </div>
+
+            <div class="chat-quick-replies" id="chat-replies">
+                <button class="quick-btn" data-msg="🗓️ Kdy máte dnes volno?">Rezervace</button>
+                <button class="quick-btn" data-msg="💰 Jaké máte ceny?">Ceník</button>
+                <button class="quick-btn" data-msg="📍 Kde vás najdu?">Adresa</button>
+            </div>
+
+            <form class="chat-input-form" id="chat-form">
+                <input type="text" id="chat-input" placeholder="Napiš zprávu..." autocomplete="off">
+                <button type="submit" class="chat-send-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    
+    <div class="sticky-mobile-booking">
+        <button class="btn-primary w-100 open-booking">Rezervovat</button>
+    </div>
+
+    <!-- Rezervační Modal Systém -->
+    <div class="modal-overlay" id="booking-modal">
+        <div class="modal-box">
+            <button class="close-modal" id="close-modal">✕</button>
+            <div id="booking-content">
+                <h2>Rychlá rezervace</h2>
+                <p class="modal-desc">Zabezpečte si své místo bez zbytečného čekání.</p>
+                <form class="booking-form" id="booking-form">
+                    <div class="form-group">
+                        <label>Vyberte službu:</label>
+                        <select id="booking-service" required>
+                            <option value="" disabled selected>Vyberte službu</option>
+                            <option value="1" data-duration="60">Klasický Střih (60 min)</option>
+                            <option value="2" data-duration="60">Úprava Vousů (60 min)</option>
+                            <option value="3" data-duration="90">VIP Kombo (90 min)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Vyberte barbera:</label>
+                        <select id="booking-barber">
+                            <option value="" selected>Rozhodnu na místě o barberovi</option>
+                            <option value="david">David "Boss"</option>
+                            <option value="tomas">Tomáš</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Vyberte den:</label>
+                        <div class="date-picker-wrap" id="date-picker-list">
+                            <!-- Dny budou generovány přes JS -->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dostupné časy:</label>
+                        <div class="time-grid" id="time-slots-grid">
+                            <p class="empty-state">Nejdříve vyberte službu a den.</p>
+                        </div>
+                    </div>
+
+                    <input type="text" placeholder="Tel. číslo / Email" required>
+                    <input type="hidden" id="final-appointment-time" required>
+                    
+                    <button type="submit" class="btn-primary w-100 mt-3" id="submit-booking" disabled>Dokončit rezervaci</button>
+                </form>
+            </div>
+            <!-- Success Animace, skryta na začátku -->
+            <div id="booking-success" style="display: none; text-align: center; padding: 40px 10px;">
+                <div class="success-icon">✓</div>
+                <h2 style="color: #32c850;">Hotovo!</h2>
+                <p>Vaše rezervace byla úspěšně odeslána. Těšíme se na vás!</p>
+                <button class="btn-primary mt-3" id="close-success-btn">Zavřít</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Development Tools
+.gemini/
+.DS_Store
+Thumbs.db
+
+# Possible build artifacts (if any in future)
+node_modules/
+dist/
+.vercel
