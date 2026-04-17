@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Děkujeme za rezervaci | Jesle Barber Shop</title>
+    <meta name="description" content="Děkujeme za vaši rezervaci. Těšíme se na vaši návštěvu v Jesle Barber Shopu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .thank-you-wrapper { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 80vh; text-align: center; padding: 20px; }
+        .thank-you-title { font-family: var(--font-heading); font-size: 3rem; margin-bottom: 20px; color: var(--accent); }
+        .thank-you-text { font-size: 1.2rem; color: var(--text-pure); margin-bottom: 40px; max-width: 600px; }
+        .contact-info { background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border-color); width: 100%; max-width: 500px; margin-bottom: 30px; position: relative; overflow: hidden; }
+        .contact-info h3 { font-family: var(--font-heading); margin-bottom: 20px; font-size: 1.5rem; color: var(--text-pure); }
+        .contact-info p { color: var(--text-muted); margin-bottom: 10px; font-size: 1.1rem; }
+        .social-links { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
+        .social-link { display: flex; justify-content: center; align-items: center; color: var(--text-pure); text-decoration: none; font-weight: bold; border: 1px solid var(--border-color); padding: 12px 24px; border-radius: 6px; transition: 0.3s; background: rgba(255,255,255,0.03); }
+        .social-link:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+        .success-icon-lg { width: 100px; height: 100px; border-radius: 50%; background: rgba(50,200,80,0.1); color: #32c850; font-size: 4rem; display: flex; justify-content: center; align-items: center; margin-bottom: 30px; border: 2px solid rgba(50,200,80,0.5); }
+        
+        @media (max-width: 768px) {
+            .thank-you-title { font-size: 2.2rem; }
+            .success-icon-lg { width: 80px; height: 80px; font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div class="container" style="border: none; box-shadow: none;">
+        <div class="thank-you-wrapper reveal">
+            <div class="success-icon-lg">✓</div>
+            <h1 class="thank-you-title">Děkujeme za rezervaci</h1>
+            <p class="thank-you-text">Váš termín byl úspěšně zaevidován. Brzy se vám ozveme s potvrzením. Moc se na vás těšíme v našem barber shopu!</p>
+            
+            <div class="contact-info glow-hover">
+                <h3>Kde nás najdete?</h3>
+                <p>📍 Opletalova 33, Praha 1</p>
+                <p>📞 +420 123 456 789</p>
+                <p>✉️ info@jeslebarber.cz</p>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.61-.26 3.16-1.26 4.41-1.39 1.72-3.35 2.5-5.51 2.31-2.2-.2-4.05-1.55-4.9-3.48-.82-1.85-.75-3.92.1-5.71 1.05-2.2 3.11-3.66 5.56-3.88v4.06c-1.07.13-2.02.81-2.5 1.76-.41.82-.44 1.83.02 2.66.45.83 1.3 1.34 2.24 1.45 1.05.12 2.1-.31 2.74-1.13.62-.78.89-1.78.88-2.77V.02z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <a href="index.html" class="btn-primary mt-3">Zpět na domovskou stránku</a>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            setTimeout(() => {
+                if(container) container.classList.add('loaded');
+                document.querySelector('.thank-you-wrapper').classList.add('active');
+            }, 100);
+
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
+                if(cursorDot && cursorOutline) {
+                    cursorDot.style.left = `${posX}px`;
+                    cursorDot.style.top = `${posY}px`;
+                    cursorOutline.style.left = `${posX}px`;
+                    cursorOutline.style.top = `${posY}px`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

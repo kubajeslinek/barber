@@ -133,6 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
             bookingContent.style.display = 'block';
             bookingSuccess.style.display = 'none';
             if(bookingForm) bookingForm.reset();
+            
+            // Pokud tlačítko obsahuje specifikovaného barbera, rovnou ho vybereme
+            if (e && e.currentTarget && e.currentTarget.hasAttribute('data-barber')) {
+                const barberId = e.currentTarget.getAttribute('data-barber');
+                const barberSelect = document.getElementById('booking-barber');
+                if (barberSelect) barberSelect.value = barberId;
+            }
         }
 
         modalOverlay.classList.toggle('active');
@@ -261,6 +268,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const renderSlots = () => {
             if(!selectedDate || !selectedDuration) return;
             
+            // Při změně dne nebo služby ihned uzamknout tlačítko a vymazat vybraný čas
+            finalTimeInput.value = '';
+            submitBtn.disabled = true;
+            
             timeGrid.innerHTML = '';
             const slots = getAvailableSlots(selectedDate, selectedDuration);
 
@@ -297,23 +308,14 @@ document.addEventListener('DOMContentLoaded', () => {
         bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Plynulý přechod (fade out form, fade in success)
+            // Plynulý přechod (fade out form, pak přesměrování)
             bookingContent.style.opacity = '0';
             bookingContent.style.transform = 'translateY(-10px)';
             bookingContent.style.transition = '0.4s ease';
+            document.body.style.cursor = 'wait'; // Ukáže načítání
             
             setTimeout(() => {
-                bookingContent.style.display = 'none';
-                bookingSuccess.style.display = 'block';
-                bookingSuccess.style.opacity = '0';
-                bookingSuccess.style.transform = 'translateY(10px)';
-                
-                // Force reflow
-                bookingSuccess.offsetHeight;
-                
-                bookingSuccess.style.transition = '0.5s cubic-bezier(0.19, 1, 0.22, 1)';
-                bookingSuccess.style.opacity = '1';
-                bookingSuccess.style.transform = 'translateY(0)';
+                window.location.href = 'thank-you.html';
             }, 400);
         });
     }
@@ -449,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Sady klíčových slov
         const resKWs = ['rezerva', 'objedn', 'střih', 'strih', 'termín', 'termin', 'volno', 'místo', 'misto', 'čas', 'cas', 'kdy'];
-        const priceKWs = ['cena', 'ceník', 'ceny', 'stojí', 'stoji', 'peněz', 'kolik', 'platit', 'kartou'];
+        const priceKWs = ['cena', 'ceník', 'ceny', 'stojí', 'stoji', 'peněz', 'kolik', 'umíte', 'umite', 'služb', 'sluzb', 'nabíz', 'nabiz'];
         const locoKWs = ['adresa', 'kde', 'najdu', 'lokalita', 'ulice', 'parkov', 'mapa'];
 
         // Kontrola úmyslů
@@ -490,8 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (service) {
                 return `Jasně, **${service.name}** u nás vyjde na **${service.price} Kč** a trvá cca **${service.duration} minut**. <br><br> Je to absolutní relax, věř mi! 😉`;
             }
-            const priceList = JESLE_DATA.services.map(s => `• ${s.name}: ${s.price} Kč`).join('<br>');
-            return `Tady máš náš ceník, brácho: <br><br> ${priceList} <br><br> Co z toho vybereme?`;
+            return `Tady máš náš přehled služeb, brácho: <br><br> ✂️ **Klasický Střih** - Od 590 Kč <br> 🪒 **Úprava Vousů** - Od 390 Kč <br> 🔥 **Kombo (Vlasy + Vousy)** - Od 890 Kč <br><br> Co si z toho pro tebe vybereme?`;
         }
 
         // 3. LOKALITA A PARKOVÁNÍ
@@ -528,7 +529,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!chatMessages) return;
         const msgDiv = document.createElement('div');
         msgDiv.classList.add('chat-message', sender === 'bot' ? 'msg-bot' : 'msg-user');
-        msgDiv.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Podpora tučného písma
+        
+        if (sender === 'user') {
+            // Ochrana proti XSS - uživatelský vstup vložen bezpečně přes textContent
+            msgDiv.textContent = text;
+        } else {
+            // Bot používá bezpečné předdefinované řetězce, proto můžeme nechat innerHTML (pro značky <strong>)
+            msgDiv.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        }
+        
         chatMessages.appendChild(msgDiv);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     };
@@ -591,11 +600,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    setTimeout(() => {
-        if (!botInitialized && chatBadge) {
-            chatBadge.style.display = 'flex';
-        }
-    }, 8000);
+    // Otevření Maxe po 15s při každé nové návštěvě v rámci jednoho sezení (sessionStorage)
+    if (!sessionStorage.getItem('maxSessionOpened')) {
+        setTimeout(() => {
+            if (chatWindow && !chatWindow.classList.contains('active')) {
+                toggleChat(); 
+            }
+            sessionStorage.setItem('maxSessionOpened', 'true');
+        }, 15000); // 15 sekund
+    } else {
+        // Pro pohyb po stránce (když už je sessions otevřená)
+        setTimeout(() => {
+            if (!botInitialized && chatBadge) {
+                chatBadge.style.display = 'flex';
+            }
+        }, 8000);
+    }
 
 });
 
