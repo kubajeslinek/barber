@@ -117,7 +117,7 @@ body::before {
 
 .section-padding { padding: 120px 40px; }
 .section-header { margin-bottom: 70px; }
-.section-title { font-family: var(--font-heading); font-size: 4rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; letter-spacing: -1px; }
+.section-title { font-family: var(--font-heading); font-size: 3rem; font-weight: 300; text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px; }
 .section-subtitle { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; }
 .gold-text { color: var(--accent) !important; }
 .mt-3 { margin-top: 20px; }
@@ -179,7 +179,7 @@ body::before {
 .mobile-menu-overlay.active { opacity: 1; visibility: visible; transform: translateY(0); }
 .close-menu-btn { position: absolute; top: 30px; right: 40px; background: none; border: none; color: var(--text-pure); font-size: 2rem; cursor: pointer; }
 .mobile-nav-links { display: flex; flex-direction: column; gap: 30px; text-align: center; margin-bottom: 40px; }
-.mobile-nav-links a { font-family: var(--font-heading); font-size: 2.5rem; color: var(--text-pure); text-decoration: none; font-weight: 700; text-transform: uppercase; }
+.mobile-nav-links a { font-family: var(--font-heading); font-size: 1.8rem; color: var(--text-pure); text-decoration: none; font-weight: 700; text-transform: uppercase; }
 .mobile-book-btn { font-size: 1.2rem; padding: 15px 40px; }
 .mobile-socials a { color: var(--text-muted); margin: 0 10px; font-weight: bold; text-decoration: none;}
 
@@ -765,7 +765,7 @@ button#submit-booking:disabled { opacity: 0.5; filter: grayscale(1); cursor: not
     border-radius: 25px;
     padding: 10px 15px;
     color: white;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 #chat-input:focus {
@@ -900,10 +900,12 @@ button#submit-booking:disabled { opacity: 0.5; filter: grayscale(1); cursor: not
     .hero { padding: 40px 20px; }
     .navbar { padding: 15px 20px; }
     .hero-title { font-size: 2.5rem; }
+    .section-title { font-size: 2.5rem; } /* Update section titles on mobile to match hero */
     .bg-text { font-size: 35vw; }
     .ba-container { height: 300px; }
     .ba-resize img { width: 100vw; height: 300px; }
     .sticky-mobile-booking { display: block; }
-    .floating-chat-btn { bottom: 100px; right: 20px; } /* raise above sticky bar */
+    .floating-chat-btn { bottom: 100px; right: 20px; z-index: 100; } /* raise above sticky bar */
     .container { padding-bottom: 100px; }
+    .menu-btn { z-index: 1001; position: relative; } /* Fix hamburger menu clicability */
 }

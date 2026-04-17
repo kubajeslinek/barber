@@ -516,8 +516,17 @@ document.addEventListener('DOMContentLoaded', () => {
         chatWindow.classList.toggle('active');
         if (chatWindow.classList.contains('active')) {
             if (chatBadge) chatBadge.style.display = 'none';
+            if (chatToggle) {
+                chatToggle.style.opacity = '0';
+                chatToggle.style.pointerEvents = 'none';
+            }
             if (!botInitialized) {
                 setTimeout(() => initializeBot(), 500);
+            }
+        } else {
+            if (chatToggle) {
+                chatToggle.style.opacity = '1';
+                chatToggle.style.pointerEvents = 'auto';
             }
         }
     };
